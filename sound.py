@@ -4,7 +4,7 @@ import sys
 
 PyAudio = pyaudio.PyAudio
 rate = 128000 # 16 kbps
-for freq in xrange(200,1000,50):
+def gen_tone(freq):
     data = ''.join([chr(int(math.sin(x/((rate/freq)/math.pi))*127+128)) for x in xrange(rate)])
     p = PyAudio()
 
@@ -18,3 +18,5 @@ for freq in xrange(200,1000,50):
     stream.stop_stream()
     stream.close()
     p.terminate()
+    
+gen_tone(int(sys.argv[1]))
