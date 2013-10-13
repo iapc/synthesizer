@@ -29,13 +29,23 @@ class App:
             )
         self.button.pack(side=LEFT)
 
-        self.hi_there = Button(
-            frame, text="Play 3000Hz Tone", command=self.say_hi
+        self.tone1 = Button(
+            frame, text="Play 3000Hz Tone", command=self.gentone1
             )
-        self.hi_there.pack(side=LEFT)
+        self.tone1.pack(side=LEFT)
 
-    def say_hi(self):
+        self.tone2 = Button(
+            frame, text="Play 6000Hz Tone", command=self.gentone2
+            )
+        self.tone2.pack(side=LEFT)        
+
+
+
+    def gentone1(self):
         gen_tone(3000)
+
+    def gentone2(self):
+        gen_tone(6000)
         
 
 def main():
